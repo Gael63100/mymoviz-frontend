@@ -1,7 +1,10 @@
+// Utilisation de la librairie Bootstrap pour React : reactstrap => https://reactstrap.github.io/
+// installation des modules :
 // npm install --save reactstrap react react-dom
 // npm install bootstrap --save
-// import 'bootstrap/dist/css/bootstrap.min.css'
 
+// Utilisation de la librairie fontawesome pour React : react-fontawesome => https://www.npmjs.com/package/@fortawesome/react-fontawesome
+// installation des modules :
 // npm install --save @fortawesome/fontawesome-svg-core
 // npm install --save @fortawesome/free-solid-svg-icons
 // npm install --save @fortawesome/react-fontawesome
@@ -22,10 +25,10 @@ import {
   CardTitle,
   CardText,
   CardBody
-} from 'reactstrap'
+} from 'reactstrap' // utilisation des composants : Navbar, Popover, Card et pour initialiser une grille bootstrap : Container, Row et Col  
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHeart } from '@fortawesome/free-solid-svg-icons'
-import 'bootstrap/dist/css/bootstrap.css'
+import { faHeart } from '@fortawesome/free-solid-svg-icons' // utilisation de l'icône heart 
+import 'bootstrap/dist/css/bootstrap.css' // Ne pas oublier d'importer le fichier CSS de bootstrap
 
 class App extends Component {
   constructor () {
@@ -44,9 +47,9 @@ class App extends Component {
     }
   }
 
-  componentDidMount () {
+  componentDidMount () { // Lapplication doit afficher la liste des films récents dès son chargement.
     var ctx = this
-    fetch('http://localhost:4000/movie').then(function (response) {
+    fetch('http://localhost:4000/movie').then(function (response) { // Rappel: Le port d'écoute par défaut a été changé par 4000 dans le backend
       return response.json()
     }).then(function (data) {
       ctx.setState({ movies: data.results })
